@@ -1,133 +1,98 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cn } from '../lib/utils';
-import { TrendingUp, Box, Hexagon } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
-// --- MOCK DATA ---
-
-const testimonials = [
-  {
-    company: "Startup Tech",
-    logo: TrendingUp,
-    quote: "Automatizar o acompanhamento de leads aumentou nossa taxa de conversão em 30% sem aumentar a equipe. O trabalho do Eduardo é incrível.",
-    name: "Ana Silva",
-    role: "Diretora de Crescimento",
-    image: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-    gradient: "from-blue-600/20 via-purple-500/10 to-orange-500/20"
-  },
-  {
-    company: "Logística Express",
-    logo: Box,
-    quote: "Insights em tempo real dos agentes de IA nos ajudam a identificar tendências antes que surjam. Decisões mais rápidas e inteligentes.",
-    name: "João Santos",
-    role: "Chefe de Operações",
-    image: "https://i.pravatar.cc/150?u=a04258a2462d826712d",
-    gradient: "from-orange-600/20 via-red-500/10 to-purple-500/20"
-  },
-  {
-    company: "Consultoria Pro",
-    logo: Hexagon,
-    quote: "Integrações perfeitas entre Slack e CRM mantêm nossa equipe alinhada. A automação garante que todos estejam na mesma página.",
-    name: "Carla Dias",
-    role: "Gestora de Sucesso",
-    image: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-    gradient: "from-blue-500/20 via-cyan-500/10 to-blue-600/20"
-  },
-  {
-    company: "TechFlow",
-    logo: TrendingUp,
-    quote: "Reduzimos o tempo de resolução de tickets em 60% no primeiro mês. Os agentes de IA são incrivelmente precisos.",
-    name: "Marcos Costa",
-    role: "VP de Engenharia",
-    image: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
-    gradient: "from-emerald-600/20 via-blue-500/10 to-emerald-500/20"
-  }
-];
-
-const TestimonialCard = ({ data }: { data: typeof testimonials[0] }) => (
-  <div className="relative w-[350px] md:w-[400px] h-[450px] flex-shrink-0 rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] group">
-    
-    {/* Background Gradient Mesh */}
-    <div className={cn("absolute inset-0 bg-gradient-to-br opacity-40 blur-3xl transition-opacity duration-500", data.gradient)} />
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A]" />
-
-    <div className="relative z-10 h-full p-8 md:p-10 flex flex-col">
-      {/* Company Logo */}
-      <div className="flex items-center gap-3 mb-10">
-        <data.logo className="w-8 h-8 text-white" strokeWidth={2.5} />
-        <span className="text-xl font-bold text-white tracking-tight">{data.company}</span>
-      </div>
-
-      {/* Quote */}
-      <blockquote className="text-lg md:text-xl font-medium text-gray-200 leading-relaxed mb-auto">
-        “{data.quote}”
-      </blockquote>
-
-      {/* Profile */}
-      <div className="flex items-center gap-4 mt-8 pt-8 border-t border-white/5">
-        <div className="w-12 h-12 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-          <img src={data.image} alt={data.name} className="w-full h-full object-cover" />
-        </div>
-        <div>
-          <div className="text-white font-medium">{data.name}</div>
-          <div className="text-sm text-gray-500">{data.role}</div>
-        </div>
-      </div>
+const TestimonialCard = ({ quote, author, role, company, delay }: any) => (
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay, duration: 0.5 }}
+    className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 flex flex-col h-full relative group hover:border-white/20 transition-colors"
+  >
+    <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg">
+      <Quote size={20} fill="currentColor" />
     </div>
-  </div>
+    
+    <p className="text-gray-300 text-lg leading-relaxed mb-8 italic pt-4">
+      "{quote}"
+    </p>
+
+    <div className="mt-auto border-t border-white/5 pt-6">
+      <div className="font-bold text-white">{author}</div>
+      <div className="text-sm text-gray-500">{role}, {company}</div>
+    </div>
+  </motion.div>
 );
 
 export const Testimonials = () => {
+  const testimonials = [
+    {
+      quote: "O Eduardo automatizou todo nosso processo de agendamento. Antes gastávamos 10 horas semanais confirmando consultas manualmente. Hoje tudo roda sozinho pelo WhatsApp!",
+      author: "Dra. Mariana Silva",
+      role: "Diretora",
+      company: "Clínica Estética Bella Vida"
+    },
+    {
+      quote: "A automação do controle de prazos processuais foi um divisor de águas. Nunca mais perdemos um prazo e minha equipe ficou livre para focar no que realmente importa: os clientes.",
+      author: "Dr. Roberto Mendes",
+      role: "Sócio",
+      company: "Mendes & Associados Advocacia"
+    },
+    {
+      quote: "Nosso e-commerce triplicou de tamanho mas a equipe continuou a mesma. A automação de pedidos e estoque que o Eduardo criou foi essencial para escalarmos.",
+      author: "Carlos Eduardo",
+      role: "CEO",
+      company: "Loja VirtualTech"
+    },
+    {
+      quote: "Os relatórios para nossos clientes eram um pesadelo. Levávamos dias para compilar. Agora são gerados automaticamente em minutos. Nossos clientes amam!",
+      author: "Juliana Costa",
+      role: "Diretora",
+      company: "Agência Digital Impulse"
+    }
+  ];
+
+  const metrics = [
+    { value: "80%", label: "Redução em tarefas manuais" },
+    { value: "40h", label: "Economizadas por mês/cliente" },
+    { value: "400%", label: "ROI médio em 6 meses" },
+    { value: "96%", label: "Satisfação dos clientes" },
+  ];
+
   return (
-    <section className="w-full py-32 overflow-hidden relative z-20">
-      
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-950/10 px-4 py-1.5 mb-6"
-        >
-          <span className="text-[10px] md:text-xs font-bold tracking-wider text-blue-400 uppercase">
-            Histórias de Sucesso
-          </span>
-        </motion.div>
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold text-white tracking-tight max-w-2xl"
-        >
-          O que dizem nossos <br />
-          clientes e parceiros
-        </motion.h2>
-      </div>
+    <section className="w-full py-32 px-6 relative z-20 bg-[#080808]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Resultados Reais de <br /> Clientes Reais
+          </h2>
+        </div>
 
-      {/* Infinite Scroll Ticker - Constrained Width on Desktop with Overflow Hidden */}
-      <div className="w-full lg:w-[60%] lg:mx-auto relative overflow-hidden">
-        {/* Fade Masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          {testimonials.map((t, i) => (
+            <TestimonialCard key={i} {...t} delay={i * 0.1} />
+          ))}
+        </div>
 
-        <div className="flex gap-8 animate-scroll pl-6">
-          {/* Set 1 */}
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={`t1-${i}`} data={t} />
-          ))}
-          {/* Set 2 (Duplicate for loop) */}
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={`t2-${i}`} data={t} />
-          ))}
-          {/* Set 3 (Extra buffer) */}
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={`t3-${i}`} data={t} />
+        {/* Metrics */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {metrics.map((m, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white/5 border border-white/5 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors"
+            >
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">{m.value}</div>
+              <div className="text-sm text-gray-400">{m.label}</div>
+            </motion.div>
           ))}
         </div>
       </div>
-
     </section>
   );
 };

@@ -393,8 +393,8 @@ const WorkflowsView = () => (
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 // --- MAIN COMPONENT ---
 
@@ -402,22 +402,19 @@ const slides = [
   {
     id: "analytics",
     title: "Analytics",
-    description:
-      "Dashboards em tempo real mostram tendências, gargalos e ROI num piscar de olhos — para decisões mais rápidas.",
+    description: "Dashboards em tempo real mostram tendências, gargalos e ROI num piscar de olhos — para decisões mais rápidas.",
     Component: AnalyticsView,
   },
   {
     id: "integrations",
     title: "Integração",
-    description:
-      "Conectores de um clique e API aberta sincronizam CRM, chat, calendário e mais — tudo fica em sincronia.",
+    description: "Conectores de um clique e API aberta sincronizam CRM, chat, calendário e mais — tudo fica em sincronia.",
     Component: IntegrationsView,
   },
   {
     id: "workflows",
     title: "Workflow",
-    description:
-      "Automações multi-etapas com arrastar e soltar, gatilhos, ações de IA e regras — construídas visualmente em minutos.",
+    description: "Automações multi-etapas com arrastar e soltar, gatilhos, ações de IA e regras — construídas visualmente em minutos.",
     Component: WorkflowsView,
   },
 ];

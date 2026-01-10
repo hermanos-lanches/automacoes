@@ -1,44 +1,33 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { InteractiveDemo } from '../components/InteractiveDemo';
-import { UseCaseGrid } from '../components/UseCaseGrid';
-import { TrustLogos } from '../components/TrustLogos';
-import { Features } from '../components/Features';
-import { InstantActions } from '../components/InstantActions';
-import { StackedCards } from '../components/StackedCards';
-import { ScaleManage } from '../components/ScaleManage';
-import { IntegrationsTicker } from '../components/IntegrationsTicker';
+import { AboutMe } from '../components/AboutMe';
+import { Services } from '../components/Services';
+import { UseCases } from '../components/UseCases';
+import { TechStack } from '../components/TechStack';
+import { HowItWorks } from '../components/HowItWorks';
 import { Testimonials } from '../components/Testimonials';
-import { WorkflowSteps } from '../components/WorkflowSteps';
 import { FAQ } from '../components/FAQ';
-import { CTA } from '../components/CTA';
+import { ContactSection } from '../components/ContactSection';
+import { ScrollProgress } from '../components/ui/ScrollProgress';
+import { FloatingWhatsApp } from '../components/ui/FloatingWhatsApp';
+import { ScrollToTop } from '../components/ui/ScrollToTop';
 
 export const Home = () => {
   return (
     <>
+      <ScrollProgress />
       <Hero />
-      <InteractiveDemo />
-      <UseCaseGrid />
-      <TrustLogos />
-      <Features />
-      {/* Merged Header + Instant Actions Card */}
-      <InstantActions />
-      
-      {/* Stacked Cards */}
-      <StackedCards />
-
-      {/* Carousel Dashboard */}
-      <ScaleManage />
-      {/* Integrations Ticker */}
-      <IntegrationsTicker />
-      
-      {/* New Sections */}
+      <AboutMe />
+      <Services />
+      <UseCases />
+      <TechStack />
+      <HowItWorks />
       <Testimonials />
-      <WorkflowSteps />
-      
-      {/* Final Sections */}
       <FAQ />
-      <CTA />
+      <ContactSection />
+      
+      <FloatingWhatsApp />
+      <ScrollToTop />
     </>
   );
 };
