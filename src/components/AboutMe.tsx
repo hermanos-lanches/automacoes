@@ -28,10 +28,10 @@ export const AboutMe = () => {
           >
             {/* Adjusted aspect ratio for portrait photo and removed grayscale */}
             <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl max-w-md mx-auto lg:max-w-full">
-              <img
-                src="/eduardo-andreazza.jpg"
-                alt="Eduardo Andreazza"
-                className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-700"
+              <img 
+                src="/eduardo-andreazza.png" 
+                alt="Eduardo Andreazza" 
+                className="w-full h-auto object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               
